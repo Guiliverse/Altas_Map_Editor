@@ -1,9 +1,11 @@
 import React, { useState, Suspense, useEffect, useCallback } from "react";
 import { Environment } from "@react-three/drei";
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
+import { produce } from "immer";
+
 import Toolbar from "./components/Toolbar";
 import Inspector from "./components/Inspector";
-import { produce } from "immer";
+import Controller from "./components/Controller";
 import Scene from "./Scene";
 import "./styles.css";
 
@@ -12,13 +14,32 @@ export default function App() {
   const [controlStatus, setControlStatus] = useState({
     current: null,
     mode: "translate",
+  });
+  const [inspectProperties, setInspectProperties] = useState({
+    name: "",
+    uuid: "",
+    type: "",
+    position: { x: 0, y: 0, z: 0 },
+    scale: { x: 1, y: 1, z: 1 },
+    rotation: { x: 0, y: 0, z: 0 },
+    visible: true,
+    renderOrder: 0,
+    receiveShadow: false,
+    castShadow: true,
     color: "",
+    roughness: 0,
+    metalness: 0,
+    emissive: "",
   });
 
   const addShape = (type) => {
     setObjects(
       produce((draft) => {
-        draft.push({ type: type, rotation: [0, 0, 0], position: [0, 0, 0] });
+        draft.push({
+          type: type,
+          rotation: [0, 0, 0],
+          position: [0, 0, 0],
+        });
       })
     );
   };
@@ -26,6 +47,9 @@ export default function App() {
   useEffect(() => {
     console.log(controlStatus.current);
   }, [controlStatus]);
+  useEffect(() => {
+    console.log(inspectProperties);
+  }, [inspectProperties]);
 
   return (
     <div className="wrapper">
@@ -42,36 +66,20 @@ export default function App() {
             objects={objects}
             controlStatus={controlStatus}
             setControlStatus={setControlStatus}
+            inspectProperties={inspectProperties}
+            setInspectProperties={setInspectProperties}
           />
         </Canvas>
-        <div className="basic-controls">
-          <div className="basic-button-group">
-            <button
-              className={`basic-button ${
-                controlStatus.mode === "translate" ? "selected" : ""
-              }`}
-              onClick={() => {
-                setControlStatus({ ...controlStatus, mode: "translate" });
-              }}
-            >
-              Move
-            </button>
-            <button
-              className={`basic-button ${
-                controlStatus.mode === "rotate" ? "selected" : ""
-              }`}
-              onClick={() => {
-                setControlStatus({ ...controlStatus, mode: "rotate" });
-              }}
-            >
-              Rotate
-            </button>
-          </div>
-        </div>
+        <Controller
+          controlStatus={controlStatus}
+          setControlStatus={setControlStatus}
+        />
       </div>
       <Inspector
         controlStatus={controlStatus}
         setControlStatus={setControlStatus}
+        inspectProperties={inspectProperties}
+        setInspectProperties={setInspectProperties}
       />
     </div>
   );

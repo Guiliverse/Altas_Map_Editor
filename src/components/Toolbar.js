@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Toolbar = (props) => {
-  const { objects, addShape } = props;
+  const { addShape } = props;
 
   return (
     <div className="tool-bar">

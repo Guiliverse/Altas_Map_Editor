@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useThree, useLoader, useFrame } from "@react-three/fiber";
+import { useThree } from "@react-three/fiber";
 import {
   OrbitControls,
   useHelper,
   TransformControls,
   GizmoHelper,
-  GizmoViewport,
   GizmoViewcube,
 } from "@react-three/drei";
 import { BoxHelper } from "three";
-const modes = ["translate", "rotate", "scale"];
 
 const CustomBox = (props) => {
   const { position, rotation, controlStatus, setControlStatus } = props;
@@ -30,6 +28,7 @@ const CustomBox = (props) => {
         castShadow
         ref={ref}
         onClick={onClickhandle}
+        name="box"
       >
         <boxGeometry args={[1, 1, 1]} />
         <meshPhysicalMaterial
@@ -68,6 +67,7 @@ const CustomCylinder = (props) => {
         castShadow
         ref={ref}
         onClick={onClickhandle}
+        name="cylinder"
       >
         <cylinderGeometry args={[1, 1, 1]} />
         <meshPhysicalMaterial
@@ -87,26 +87,56 @@ const CustomCylinder = (props) => {
   );
 };
 
-const Scene = ({ objects, controlStatus, setControlStatus }) => {
+const Scene = ({
+  objects,
+  controlStatus,
+  setControlStatus,
+  inspectProperties,
+  setInspectProperties,
+}) => {
   const [shapes, setShapes] = useState(objects);
   const cubeRef = useRef();
+  const { scene } = useThree();
   useHelper(cubeRef, BoxHelper, "yellow");
 
   useEffect(() => {
     setShapes(objects);
     console.log(objects);
   }, [objects]);
+
+  useEffect(() => {
+    console.log("scene", controlStatus);
+    const currentObject = scene.getObjectByProperty(
+      "uuid",
+      controlStatus.current
+    );
+    console.log(currentObject);
+    currentObject &&
+      setInspectProperties({
+        ...inspectProperties,
+        name: currentObject.name,
+        uuid: currentObject.uuid,
+        type: currentObject.type,
+        position: currentObject.position,
+        scale: currentObject.scale,
+        rotation: currentObject.rotation,
+        visible: currentObject.visible,
+        renderOrder: currentObject.renderOrder,
+        receiveShadow: currentObject.receiveShadow,
+        castShadow: currentObject.castShadow,
+        color: "#" + currentObject.material.color.getHexString(),
+        roughness: currentObject.material.roughness,
+        metalness: currentObject.material.metalness,
+        emissive: "#" + currentObject.material.emissive.getHexString(),
+      });
+  }, [controlStatus]);
   return (
     <>
       <gridHelper position={[0, -0.5, 0]} args={[5000, 5000]} />
       <GizmoHelper alignment={"top-right"} margin={[60, 60]}>
         <GizmoViewcube labelColor={"black"} />
       </GizmoHelper>
-      <mesh
-        position={[0, -0.76, 0]}
-        receiveShadow
-        // onClick={() => setControlStatus({ ...controlStatus, current: null })}
-      >
+      <mesh position={[0, -0.76, 0]} receiveShadow>
         <boxGeometry args={[10, 0.5, 10]} />
         <meshPhysicalMaterial
           color={"#486475"}

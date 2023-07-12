@@ -12,41 +12,40 @@
   font-family: system-ui;
   text-align: center;
 }
- 
-  
-body{
+
+body {
   margin: 0;
   padding: 0;
 }
-  
-.wrapper{
+
+.wrapper {
   display: flex;
   flex-direction: row;
 }
-.tool-bar{
+.tool-bar {
   width: 50px;
   height: 100vh;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-canvas{
+canvas {
   height: 100vh;
   width: 100%;
 }
-.inspector{
+.inspector {
   height: 100vh;
-  width: 200px;
-  background-color: rgba(0,0,0,0.75);
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.75);
 }
-.tool-bar-header{
+.tool-bar-header {
   color: white;
   font-size: 13px;
   font-weight: 800;
   padding: 4px 0;
   width: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .tool-icon {
   width: 42px;
@@ -57,18 +56,18 @@ canvas{
   background-color: transparent;
   outline: none;
   border: none;
-  color:white
+  color: white;
 }
 .tool-icon:hover {
- background-color: rgb(255, 255, 255, 0.25);
+  background-color: rgb(255, 255, 255, 0.25);
 }
-.main-window{
+.main-window {
   flex: 1;
   position: relative;
   height: 100vh;
   width: 100%;
 }
-.basic-controls{
+.basic-controls {
   position: absolute;
   width: 100%;
   bottom: 10px;
@@ -76,12 +75,12 @@ canvas{
   justify-content: center;
   align-items: center;
 }
-.basic-button-group{
+.basic-button-group {
   height: 42px;
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
 }
-.basic-button{
+.basic-button {
   width: 42px;
   height: 42px;
   font-size: 10px;
@@ -89,30 +88,81 @@ canvas{
   background-color: transparent;
   outline: none;
   border: none;
-  color:white;
+  color: white;
   border-radius: 4px;
-
 }
-.basic-button:hover{
+.basic-button:hover {
   background-color: rgb(255, 255, 255, 0.25);
 }
-.selected{
+.selected {
   background-color: rgb(255, 255, 255, 0.25);
 }
 
-.inspector-header{
+.inspector-header {
   color: white;
   font-size: 13px;
   font-weight: 800;
   padding: 4px 0;
   padding-left: 8px;
-  /* width: 100%; */
-  background-color: rgba(0,0,0,0.8); 
+  background-color: rgba(0, 0, 0, 0.8);
 }
-.inspector-color{
+.inspector-color {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 8px 0;
-  color: white
+  color: white;
+}
+.inspector-body {
+  padding: 4px;
+}
+.inspector-elements {
+  width: 100%;
+}
+.inspector-element > td {
+  padding-bottom: 12px;
+}
+.label {
+  width: 80px;
+  color: white;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+.input-value {
+  width: 100%;
+  font-size: 14px;
+  color: white;
+  background-color: rgb(255, 255, 255, 0.15);
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  margin: 0;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+.content {
+  color: white;
+  font-size: 14px;
+}
+.checkbox-value {
+  outline: none;
+  border: none;
+  background-color: rgb(255, 255, 255, 0.25);
+  color: rgb(255, 255, 255, 0.25);
+}
+.inspector-tag {
+  color: white;
+  font-size: 14px;
+  margin: 4px 0;
+}
+.input-color {
+  width: 100px;
+  height: 100px;
 }
