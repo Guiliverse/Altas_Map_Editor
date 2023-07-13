@@ -25,16 +25,45 @@ const Inspector = (props) => {
     emissive,
   } = inspectProperties;
 
-  const [colorInput, setColorInput] = useState(color);
-  const [emissiveInput, setEmissiveInput] = useState(emissive);
-
-  useEffect(() => {
-    setColorInput(color);
-  }, [color]);
-  useEffect(() => {
-    setEmissiveInput(emissive);
-  }, [emissive]);
-
+  const onNameChange = (name) => {
+    setInspectProperties({ ...inspectProperties, name: name });
+  };
+  const onColorChange = (color) => {
+    setInspectProperties({ ...inspectProperties, color: color });
+  };
+  const onEmissiveChange = (emissive) => {
+    setInspectProperties({ ...inspectProperties, emissive: emissive });
+  };
+  const onPositionChange = (position) => {
+    setInspectProperties({ ...inspectProperties, position: position });
+  };
+  const onRotationChange = (rotation) => {
+    setInspectProperties({ ...inspectProperties, rotation: rotation });
+  };
+  const onScaleChange = (scale) => {
+    setInspectProperties({ ...inspectProperties, scale: scale });
+  };
+  const onVisibleChange = (visible) => {
+    setInspectProperties({ ...inspectProperties, visible: visible });
+  };
+  const onCastShadowChange = (castShadow) => {
+    setInspectProperties({ ...inspectProperties, castShadow: castShadow });
+  };
+  const onReceiveShadowChange = (receiveShadow) => {
+    setInspectProperties({
+      ...inspectProperties,
+      receiveShadow: receiveShadow,
+    });
+  };
+  const onRenderOrderChange = (renderOrder) => {
+    setInspectProperties({ ...inspectProperties, renderOrder: renderOrder });
+  };
+  const onRoughnessChange = (roughness) => {
+    setInspectProperties({ ...inspectProperties, roughness: roughness });
+  };
+  const onMetalnessChange = (metalness) => {
+    setInspectProperties({ ...inspectProperties, metalness: metalness });
+  };
   return (
     <div className="inspector">
       <div className="inspector-header"> Inspector </div>
@@ -49,7 +78,11 @@ const Inspector = (props) => {
                 <div className="label">Name</div>
               </td>
               <td>
-                <input className="input-value" value={name} />
+                <input
+                  className="input-value"
+                  value={name}
+                  onChange={(e) => onNameChange(e.target.value)}
+                />
               </td>
             </tr>
             <tr className="inspector-element">
@@ -74,11 +107,41 @@ const Inspector = (props) => {
               </td>
               <td className="flex-row">
                 <div className="content">X</div>
-                <input className="input-value" value={position.x} />
+                <input
+                  className="input-value"
+                  value={position.x}
+                  onChange={(e) =>
+                    onPositionChange({
+                      x: +e.target.value,
+                      y: +position.y,
+                      z: +position.z,
+                    })
+                  }
+                />
                 <div className="content">Y</div>
-                <input className="input-value" value={position.y} />
+                <input
+                  className="input-value"
+                  value={position.y}
+                  onChange={(e) =>
+                    onPositionChange({
+                      x: +position.x,
+                      y: +e.target.value,
+                      z: +position.z,
+                    })
+                  }
+                />
                 <div className="content">Z</div>
-                <input className="input-value" value={position.z} />
+                <input
+                  className="input-value"
+                  value={position.z}
+                  onChange={(e) =>
+                    onPositionChange({
+                      x: +position.x,
+                      y: +position.y,
+                      z: +e.target.value,
+                    })
+                  }
+                />
               </td>
             </tr>
             <tr className="inspector-element">
@@ -87,11 +150,41 @@ const Inspector = (props) => {
               </td>
               <td className="flex-row">
                 <div className="content">X</div>
-                <input className="input-value" value={scale.x} />
+                <input
+                  className="input-value"
+                  value={scale.x}
+                  onChange={(e) =>
+                    onScaleChange({
+                      x: +e.target.value,
+                      y: +scale.y,
+                      z: +scale.z,
+                    })
+                  }
+                />
                 <div className="content">Y</div>
-                <input className="input-value" value={scale.y} />
+                <input
+                  className="input-value"
+                  value={scale.y}
+                  onChange={(e) =>
+                    onScaleChange({
+                      x: +scale.x,
+                      y: +e.target.value,
+                      z: +scale.z,
+                    })
+                  }
+                />
                 <div className="content">Z</div>
-                <input className="input-value" value={scale.z} />
+                <input
+                  className="input-value"
+                  value={scale.z}
+                  onChange={(e) =>
+                    onScaleChange({
+                      x: +scale.x,
+                      y: +scale.y,
+                      z: +e.target.value,
+                    })
+                  }
+                />
               </td>
             </tr>
             <tr className="inspector-element">
@@ -100,11 +193,41 @@ const Inspector = (props) => {
               </td>
               <td className="flex-row">
                 <div className="content">X</div>
-                <input className="input-value" value={rotation.x} />
+                <input
+                  className="input-value"
+                  value={rotation.x}
+                  onChange={(e) =>
+                    onRotationChange({
+                      x: +e.target.value,
+                      y: +rotation.y,
+                      z: +rotation.z,
+                    })
+                  }
+                />
                 <div className="content">Y</div>
-                <input className="input-value" value={rotation.y} />
+                <input
+                  className="input-value"
+                  value={rotation.y}
+                  onChange={(e) =>
+                    onRotationChange({
+                      x: +rotation.x,
+                      y: +e.target.value,
+                      z: +rotation.z,
+                    })
+                  }
+                />
                 <div className="content">Z</div>
-                <input className="input-value" value={rotation.z} />
+                <input
+                  className="input-value"
+                  value={rotation.z}
+                  onChange={(e) =>
+                    onRotationChange({
+                      x: +rotation.x,
+                      y: +rotation.y,
+                      z: +e.target.value,
+                    })
+                  }
+                />
               </td>
             </tr>
             <tr className="inspector-element">
@@ -116,6 +239,7 @@ const Inspector = (props) => {
                   type="checkbox"
                   className="checkbox-value"
                   checked={visible ? "checked" : ""}
+                  onChange={(e) => onVisibleChange(!visible)}
                 />
               </td>
             </tr>
@@ -128,6 +252,7 @@ const Inspector = (props) => {
                   type="checkbox"
                   className="checkbox-value"
                   checked={castShadow ? "checked" : ""}
+                  onChange={(e) => onCastShadowChange(!castShadow)}
                 />
               </td>
             </tr>
@@ -141,6 +266,7 @@ const Inspector = (props) => {
                   type="checkbox"
                   className="checkbox-value"
                   checked={receiveShadow ? "checked" : ""}
+                  onChange={(e) => onReceiveShadowChange(!receiveShadow)}
                 />
               </td>
             </tr>
@@ -149,7 +275,11 @@ const Inspector = (props) => {
                 <div className="label">Render Order</div>
               </td>
               <td>
-                <input className="input-value" value={renderOrder} />
+                <input
+                  className="input-value"
+                  value={renderOrder}
+                  onChange={(e) => onRenderOrderChange(e.target.value)}
+                />
               </td>
             </tr>
             <tr>
@@ -162,8 +292,8 @@ const Inspector = (props) => {
               <td>
                 <input
                   type="color"
-                  value={colorInput}
-                  onChange={(e) => setColorInput(e.target.value)}
+                  value={color}
+                  onChange={(e) => onColorChange(e.target.value)}
                 />
               </td>
             </tr>
@@ -172,7 +302,15 @@ const Inspector = (props) => {
                 <div className="label">Roughness</div>
               </td>
               <td>
-                <input className="input-value" value={roughness} />
+                <input
+                  className="input-value"
+                  type="number"
+                  min={0.0}
+                  max={1.0}
+                  step={0.1}
+                  value={roughness}
+                  onChange={(e) => onRoughnessChange(e.target.value)}
+                />
               </td>
             </tr>
             <tr className="inspector-element">
@@ -180,7 +318,15 @@ const Inspector = (props) => {
                 <div className="label">Metalness</div>
               </td>
               <td>
-                <input className="input-value" value={metalness} />
+                <input
+                  className="input-value"
+                  type="number"
+                  min={0.0}
+                  max={1.0}
+                  step={0.1}
+                  value={metalness}
+                  onChange={(e) => onMetalnessChange(e.target.value)}
+                />
               </td>
             </tr>
             <tr className="inspector-element">
@@ -190,8 +336,8 @@ const Inspector = (props) => {
               <td>
                 <input
                   type="color"
-                  value={emissiveInput}
-                  onChange={(e) => setEmissiveInput(e.target.value)}
+                  value={emissive}
+                  onChange={(e) => onEmissiveChange(e.target.value)}
                 />
               </td>
             </tr>

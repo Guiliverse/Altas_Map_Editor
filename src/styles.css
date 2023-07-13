@@ -22,14 +22,14 @@ body {
   display: flex;
   flex-direction: row;
 }
-.tool-bar {
-  width: 50px;
+.toolbar {
+  width: 42px;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+ }
 canvas {
   height: 100vh;
   width: 100%;
@@ -39,26 +39,26 @@ canvas {
   width: 350px;
   background-color: rgba(0, 0, 0, 0.75);
 }
-.tool-bar-header {
+.toolbar-header {
   color: white;
-  font-size: 13px;
+  text-align: center;
+  font-size: 14px;
   font-weight: 800;
   padding: 4px 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
 }
-.tool-icon {
+.toolbar-item {
   width: 42px;
   height: 42px;
-  margin-top: 8px;
-  font-size: 10px;
   padding: 0;
-  background-color: transparent;
-  outline: none;
+   outline: none;
+   background-color: transparent;
   border: none;
   color: white;
+  z-index: 11;
 }
-.tool-icon:hover {
+.toolbar-item:hover {
   background-color: rgb(255, 255, 255, 0.25);
 }
 .main-window {
@@ -90,6 +90,9 @@ canvas {
   border: none;
   color: white;
   border-radius: 4px;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
 }
 .basic-button:hover {
   background-color: rgb(255, 255, 255, 0.25);
@@ -165,4 +168,52 @@ canvas {
 .input-color {
   width: 100px;
   height: 100px;
+}
+.controller-icon{
+  width: 24px;
+  height: 24px;
+}
+.toolbar-icon{
+  width: 32px;
+  height: 32px;
+}
+.toolbar-menu{
+  /* width: ; */
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+.toolbar-menu:hover{
+  background-color: rgb(255, 255, 255, 0.25);
+}
+.toolbar-menu:hover .toolbar-submenu{
+  display: block;
+}
+.toolbar-submenu{
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 42px;
+  z-index: 10;
+  display: none;
+  width: 126px;
+}
+.toolbar-submenu::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.75); 
+}
+.toolbar-item-icon{
+  width: 28px;
+  height: 28px;
 }

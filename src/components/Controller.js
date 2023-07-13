@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+import MoveIcon from "../assets/move.png";
+import RotationIcon from "../assets/rotate.png";
+
 const Controller = (props) => {
   const { setControlStatus, controlStatus } = props;
   return (
@@ -13,7 +16,7 @@ const Controller = (props) => {
             setControlStatus({ ...controlStatus, mode: "translate" });
           }}
         >
-          Move
+          <img src={MoveIcon} className="controller-icon" />
         </button>
         <button
           className={`basic-button ${
@@ -23,7 +26,7 @@ const Controller = (props) => {
             setControlStatus({ ...controlStatus, mode: "rotate" });
           }}
         >
-          Rotate
+          <img src={RotationIcon} className="controller-icon" />
         </button>
       </div>
     </div>
