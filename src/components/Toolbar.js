@@ -516,6 +516,347 @@ const WindowAccs = [
   },
 ];
 
+const Floors = [
+  { path: "models/Interior/Floor/FloorTileSideV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Floor/FloorTileV1_00.glb", icon: DoorIcon },
+  { path: "models/Interior/Floor/FloorTileV1_01.glb", icon: DoorIcon },
+  { path: "models/Interior/Floor/FloorTileV1_02.glb", icon: DoorIcon },
+];
+const FurnitureAccs = [
+  { path: "models/Interior/Furniture-Acc/FurnAcc_BedLamp.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_Book.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_BookV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_BookV3.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_Bowl.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_Clock.glb", icon: DoorIcon },
+  {
+    path: "models/Interior/Furniture-Acc/FurnAcc_ClockSmall.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Furniture-Acc/FurnAcc_ClockWall.glb",
+    icon: DoorIcon,
+  },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_Glass.glb", icon: DoorIcon },
+  {
+    path: "models/Interior/Furniture-Acc/FurnAcc_PaintingLarge.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Furniture-Acc/FurnAcc_PaintingLargeV2.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Furniture-Acc/FurnAcc_PaintingMedium.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Furniture-Acc/FurnAcc_PaintingSmall.glb",
+    icon: DoorIcon,
+  },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_PensV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_PensV2.glb", icon: DoorIcon },
+  {
+    path: "models/Interior/Furniture-Acc/FurnAcc_PlantLarge.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Furniture-Acc/FurnAcc_PlantSmall.glb",
+    icon: DoorIcon,
+  },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_Plate.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_Stapler.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_Vase.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_VaseV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture-Acc/FurnAcc_WallArt.glb", icon: DoorIcon },
+];
+
+const Furnitures = [
+  { path: "models/Interior/Furniture/AirConditioner.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Armchair.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Bar.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/BarShelf.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/BarStool.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/BarV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Bathtub.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Bed.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/BedV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Bookshelf.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/BookshelfV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CeilingLamp.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CeilingLampV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CeilingLampV3.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CeilingLampV4.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CeilingLampV5.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CeilingLampV6.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Chair.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CoffeeTable.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CouchV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CouchV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/CouchV3.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DeshChair.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Desk.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DeskV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DineTableChair.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DiningTable.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DiningTableV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DresserLargeV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DresserLargeV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DresserV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/DresserV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Ext-BrickV3.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/RugBlack.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/RugRound.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/RugSmall.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/RugWhite.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Sink.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/SinkCorner.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/SmokeDetector.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Thermostat.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/ThermostatV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/ToiletClosed.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/ToiletOpen.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/TvTable.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/TvTableV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/WallOutlet.glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Wallswitch(00).glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Wallswitch(01).glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Wallswitch(11).glb", icon: DoorIcon },
+  { path: "models/Interior/Furniture/Wardrobe.glb", icon: DoorIcon },
+];
+
+const Stairs = [
+  { path: "models/Interior/Stairs/StairRailLongV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairRailLongV1W.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairRailV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairRailV1W.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairsLongV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairsLongV1W.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairsLongV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairsLongV2W.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairsV1.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairsV1W.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairsV2.glb", icon: DoorIcon },
+  { path: "models/Interior/Stairs/StairsV2W.glb", icon: DoorIcon },
+];
+
+const IntV1Plane = [
+  {
+    path: "models/Interior/Walls/IntV1Plane/EndPcsCornerV1Plain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/EndPcsDoorframeV1Plain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/EndPcsV1Plain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1CornerHalfWallPlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1CornerPlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1DoorframePlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1GarageFramePlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1HalfWallPlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1HalfWallSmallPlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1WallPlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1WallSmallPlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1WindowframePlain.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV1Plane/Int-V1WindowframeSmallPlain.glb",
+    icon: DoorIcon,
+  },
+];
+
+const IntV2Gray = [
+  {
+    path: "models/Interior/Walls/IntV2Gray/EndPcsCornerV2Gray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/EndPcsDoorframeV2Gray.glb",
+    icon: DoorIcon,
+  },
+  { path: "models/Interior/Walls/IntV2Gray/EndPcsV2Gray.glb", icon: DoorIcon },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2CornerHalfWallGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2CornerGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2DoorframeGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2GarageFrameGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2HalfWallGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2HalfWallSmallGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2WallGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2WallSmallGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2WindowframeGray.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2Gray/Int-V2WindowframeSmallGray.glb",
+    icon: DoorIcon,
+  },
+];
+
+const IntV2White = [
+  {
+    path: "models/Interior/Walls/IntV2White/EndPcsCornerV2White.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/EndPcsDoorframeV2White.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/EndPcsV2White.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2CornerHalfWallWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2CornerWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2DoorframeWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2GarageFrameWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2HalfWallWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2HalfWallSmallWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2WallWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2WallSmallWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2WindowframeWhite.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV2White/Int-V2WindowframeSmallWhite.glb",
+    icon: DoorIcon,
+  },
+];
+
+const IntV3Stripes = [
+  {
+    path: "models/Interior/Walls/IntV3Stripes/EndPcsCornerV3Stripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/EndPcsDoorframeV3Stripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/EndPcsV3Stripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3CornerHalfWallStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3CornerStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3DoorframeStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3GarageFrameStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3HalfWallStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3HalfWallSmallStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3WallStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3WallSmallStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3WindowframeStripes.glb",
+    icon: DoorIcon,
+  },
+  {
+    path: "models/Interior/Walls/IntV3Stripes/Int-V3WindowframeSmallStripes.glb",
+    icon: DoorIcon,
+  },
+];
+
 const assets = [
   {
     category: "Exterior",
@@ -536,14 +877,22 @@ const assets = [
     ],
   },
   {
-    category: "Exterior",
-    icon: DoorIcon,
+    category: "Interior",
+    icon: WallIcon,
     children: [
-      { category: "Door", icon: DoorIcon, children: Doors },
-      { category: "Roof", icon: DoorIcon, children: Roofs },
-      { category: "BrickV1", icon: DoorIcon, children: BrickV1 },
-      { category: "BrickV2", icon: DoorIcon, children: BrickV2 },
-      { category: "BrickV3", icon: DoorIcon, children: BrickV3 },
+      { category: "Furnitures", icon: FurnitureIcon, children: Furnitures },
+      { category: "Floors", icon: DoorIcon, children: Floors },
+      { category: "PlaneWall", icon: WallIcon, children: IntV1Plane },
+      { category: "GrayWall", icon: WallIcon, children: IntV2Gray },
+      { category: "WhiteWall", icon: WallIcon, children: IntV2White },
+      { category: "StripesWall", icon: WallIcon, children: IntV3Stripes },
+      { category: "Stairs", icon: WallIcon, children: Stairs },
+
+      {
+        category: "FurnitureAccs",
+        icon: FurnitureIcon,
+        children: FurnitureAccs,
+      },
     ],
   },
 ];
