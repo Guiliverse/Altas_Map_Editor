@@ -7,11 +7,7 @@ import {
   GizmoViewcube,
 } from "@react-three/drei";
 import { BoxHelper, Color } from "three";
-
 import Model from "./components/Model";
-import { assets } from "./components/Toolbar";
-
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Scene = ({
   objects,
@@ -20,7 +16,6 @@ const Scene = ({
   inspectProperties,
   setInspectProperties,
 }) => {
-  console.log(assets);
   const [shapes, setShapes] = useState(objects);
   const cubeRef = useRef();
   const { scene } = useThree();

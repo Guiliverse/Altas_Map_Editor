@@ -1,13 +1,12 @@
 import React from "react";
+import { useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
 import DoorIcon from "../assets/toolbar-icon/door.png";
 import WindowIcon from "../assets/toolbar-icon/window.png";
 import WallIcon from "../assets/toolbar-icon/wall.png";
 import FurnitureIcon from "../assets/toolbar-icon/furniture.png";
 import RoofIcon from "../assets/toolbar-icon/roof.png";
-
-import { useLoader } from "@react-three/fiber";
-
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Doors = [
   { path: "models/Exterior/Door/Door00.glb", icon: DoorIcon },
@@ -915,19 +914,19 @@ const Toolbar = (props) => {
                 <div className="toolbar-menu-item1 hover-effect" key={index2}>
                   <img src={item2.icon} className="toolbar-icon" />
                   <div className="toolbar-submenu2 submenu-bg">
-                    {item2.children.map((item3, index3) => (
-                      <>
+                    {item2.children.map((item3, index3) => {
+                      useLoader.preload(GLTFLoader, item3.path);
+                      return (
                         <img
                           key={index3}
                           src={item3.icon}
                           className="toolbar-icon hover-effect"
                           onClick={() => {
                             addShape(item3.path);
-                            useLoader.preload(GLTFLoader, item3.path);
                           }}
                         />
-                      </>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               ))}
