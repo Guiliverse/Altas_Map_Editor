@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useThree } from "@react-three/fiber";
+import { useLoader, useThree } from "@react-three/fiber";
 import {
   OrbitControls,
   useHelper,
@@ -9,6 +9,9 @@ import {
 import { BoxHelper, Color } from "three";
 
 import Model from "./components/Model";
+import { assets } from "./components/Toolbar";
+
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Scene = ({
   objects,
@@ -17,10 +20,20 @@ const Scene = ({
   inspectProperties,
   setInspectProperties,
 }) => {
+  console.log(assets);
   const [shapes, setShapes] = useState(objects);
   const cubeRef = useRef();
   const { scene } = useThree();
   useHelper(cubeRef, BoxHelper, "yellow");
+
+  // useEffect(() => {
+  //   assets.map((item1) => {
+  //     item1.children.map((item2) => {
+  //       item2.children.map((item3) =>
+  //       );
+  //     });
+  //   });
+  // }, []);
 
   useEffect(() => {
     setShapes(objects);

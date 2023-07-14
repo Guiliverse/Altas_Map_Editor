@@ -5,6 +5,10 @@ import WallIcon from "../assets/toolbar-icon/wall.png";
 import FurnitureIcon from "../assets/toolbar-icon/furniture.png";
 import RoofIcon from "../assets/toolbar-icon/roof.png";
 
+import { useLoader } from "@react-three/fiber";
+
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
 const Doors = [
   { path: "models/Exterior/Door/Door00.glb", icon: DoorIcon },
   { path: "models/Exterior/Door/Door01.glb", icon: DoorIcon },
@@ -857,7 +861,7 @@ const IntV3Stripes = [
   },
 ];
 
-const assets = [
+export const assets = [
   {
     category: "Exterior",
     icon: DoorIcon,
@@ -912,11 +916,17 @@ const Toolbar = (props) => {
                   <img src={item2.icon} className="toolbar-icon" />
                   <div className="toolbar-submenu2 submenu-bg">
                     {item2.children.map((item3, index3) => (
-                      <img
-                        key={index3}
-                        src={item3.icon}
-                        className="toolbar-icon hover-effect"
-                      />
+                      <>
+                        <img
+                          key={index3}
+                          src={item3.icon}
+                          className="toolbar-icon hover-effect"
+                          onClick={() => {
+                            addShape(item3.path);
+                            useLoader.preload(GLTFLoader, item3.path);
+                          }}
+                        />
+                      </>
                     ))}
                   </div>
                 </div>

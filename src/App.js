@@ -48,28 +48,32 @@ export default function App() {
 
   return (
     <div className="wrapper">
-      <Toolbar objects={objects} addShape={addShape} />
-      <div className="main-window">
-        <Canvas camera={{ fov: 75, position: [10, 10, 10] }}>
-          <Environment
-            path="hdr/"
-            files="evening_road_01_puresky_4k.hdr"
-            background
-            blur={1.0}
-          />
-          <Scene
-            objects={objects}
+      <Suspense fallback={null}>
+        <Toolbar objects={objects} addShape={addShape} />
+        <div className="main-window">
+          <Canvas camera={{ fov: 75, position: [10, 10, 10] }}>
+            <Environment
+              path="hdr/"
+              files="evening_road_01_puresky_4k.hdr"
+              background
+              blur={1.0}
+            />
+
+            <Scene
+              objects={objects}
+              controlStatus={controlStatus}
+              setControlStatus={setControlStatus}
+              inspectProperties={inspectProperties}
+              setInspectProperties={setInspectProperties}
+            />
+          </Canvas>
+          <Controller
             controlStatus={controlStatus}
             setControlStatus={setControlStatus}
-            inspectProperties={inspectProperties}
-            setInspectProperties={setInspectProperties}
           />
-        </Canvas>
-        <Controller
-          controlStatus={controlStatus}
-          setControlStatus={setControlStatus}
-        />
-      </div>
+        </div>
+      </Suspense>
+
       <Inspector
         controlStatus={controlStatus}
         setControlStatus={setControlStatus}
