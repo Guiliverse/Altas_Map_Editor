@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import MoveIcon from "../assets/move.png";
-import RotationIcon from "../assets/rotate.png";
+import MoveIcon from "../assets/toolbar-icon/move.png";
+import RotationIcon from "../assets/toolbar-icon/rotate.png";
 
 const Controller = (props) => {
   const { setControlStatus, controlStatus } = props;
