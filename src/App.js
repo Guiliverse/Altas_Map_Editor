@@ -1,8 +1,8 @@
 import React, { useState, Suspense, useEffect, useCallback } from "react";
-import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { produce } from "immer";
-
+import { v4 as uuidv4 } from "uuid";
+import { Environment } from "@react-three/drei";
 import Toolbar from "./components/Toolbar";
 import Inspector from "./components/Inspector";
 import Controller from "./components/Controller";
@@ -17,19 +17,10 @@ export default function App() {
   });
   const [inspectProperties, setInspectProperties] = useState({
     name: "",
-    uuid: "",
-    type: "",
     position: { x: 0, y: 0, z: 0 },
-    scale: { x: 1, y: 1, z: 1 },
     rotation: { x: 0, y: 0, z: 0 },
-    visible: true,
-    renderOrder: 0,
-    receiveShadow: false,
-    castShadow: true,
-    color: "",
-    roughness: 0,
-    metalness: 0,
-    emissive: "",
+    // color: "",
+    // emissive: "",
   });
 
   const addShape = (type) => {
@@ -37,6 +28,7 @@ export default function App() {
       produce((draft) => {
         draft.push({
           type: type,
+          uuid: uuidv4(),
           rotation: [0, 0, 0],
           position: [0, 0, 0],
         });
@@ -44,12 +36,15 @@ export default function App() {
     );
   };
 
-  useEffect(() => {
-    console.log(controlStatus.current);
-  }, [controlStatus]);
-  useEffect(() => {
-    console.log(inspectProperties);
-  }, [inspectProperties]);
+  // useEffect(() => {
+  //   console.log(objects);
+  // }, [objects]);
+  // useEffect(() => {
+  //   console.log(controlStatus.current);
+  // }, [controlStatus]);
+  // useEffect(() => {
+  //   console.log(inspectProperties);
+  // }, [inspectProperties]);
 
   return (
     <div className="wrapper">
