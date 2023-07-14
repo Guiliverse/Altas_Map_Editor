@@ -200,33 +200,60 @@ canvas {
 .toolbar-icon{
   width: 32px;
   height: 32px;
+  padding: 5px;
+  margin: 0;
 }
+ 
 .toolbar-menu{
-  /* width: ; */
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   position: relative;
-  width: 100%;
-  overflow: visible;
-}
-.toolbar-menu:hover{
-  background-color: rgb(255, 255, 255, 0.25);
-}
-.toolbar-menu:hover .toolbar-submenu{
+  margin: 0;
+  padding: 0;
+} 
+.toolbar-menu-item:hover .toolbar-submenu1{
   display: block;
 }
-.toolbar-submenu{
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 42px;
-  z-index: 10;
+ 
+.toolbar-submenu1{
   display: none;
-  width: 126px;
+  position: absolute;
+  left: 42px;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+  margin: 0;
+  padding: 0;
 }
-.toolbar-submenu::after{
+.toolbar-menu-item1{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 42px;
+
+}
+.toolbar-menu-item{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 42px;
+}
+.toolbar-menu-item1:hover .toolbar-submenu2{
+  display: block;
+}
+
+.toolbar-submenu2{
+  display: none;
+  position: absolute;
+  left: 42px;
+  top: 0;
+  z-index: 10;
+  width: 126px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+ }
+
+.submenu-bg::after{
   content: '';
   display: block;
   position: absolute;
@@ -237,7 +264,8 @@ canvas {
   z-index: -1;
   background: rgba(0, 0, 0, 0.75); 
 }
-.toolbar-item-icon{
-  width: 28px;
-  height: 28px;
+
+.hover-effect:hover{
+  background-color: rgb(255, 255, 255, 0.25);
+
 }
