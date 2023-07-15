@@ -14,9 +14,9 @@ const Inspector = (props) => {
   const onNameChange = (name) => {
     setInspectProperties({ ...inspectProperties, name: name });
   };
-  // const onColorChange = (color) => {
-  //   setInspectProperties({ ...inspectProperties, color: color });
-  // };
+  const onColorChange = (color) => {
+    setInspectProperties({ ...inspectProperties, color: color });
+  };
   // const onEmissiveChange = (emissive) => {
   //   setInspectProperties({ ...inspectProperties, emissive: emissive });
   // };

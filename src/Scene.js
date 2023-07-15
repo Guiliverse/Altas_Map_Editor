@@ -8,6 +8,7 @@ import {
 } from "@react-three/drei";
 import { BoxHelper, Color } from "three";
 import Model from "./components/Model";
+import { current } from "immer";
 
 const Scene = ({
   objects,
@@ -40,13 +41,23 @@ const Scene = ({
       "uuid",
       controlStatus.current
     );
+    console.log(currentObject, controlStatus.current);
+    // console.log(
+    //   currentObject.children[0].children[0].material.color,
+    //   "asdfadf"
+    // );
+    // currentObject && console.log(currentObject.material.color);
+    // let color = currentObject.children[0] &&
+
     currentObject &&
       setInspectProperties({
         ...inspectProperties,
         name: currentObject.name,
         position: currentObject.position,
         rotation: currentObject.rotation,
-        // color: "#" + currentObject.material.color.getHexString(),
+        color:
+          "#" +
+          currentObject.children[0]?.children[0]?.material.color.getHexString(),
       });
   }, [controlStatus]);
 
@@ -73,10 +84,12 @@ const Scene = ({
       //   inspectProperties.scale.y,
       //   inspectProperties.scale.z
       // );
-
-      // const material = currentObject.material;
-      // material.color = new Color(inspectProperties.color);
-      // currentObject.material = material;
+      // console.log(inspectProperties.color);
+      const material = currentObject.children[0].children[0].material;
+      material.color = new Color(inspectProperties.color);
+      currentObject.children[0].children[0].material = material;
+      // console.log("adf", currentObject);
+      // currentObject.children = [];
     }
   }, [inspectProperties]);
   return (

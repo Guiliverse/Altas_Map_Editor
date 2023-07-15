@@ -16,12 +16,14 @@ const Model = (props) => {
     setControlStatus({ ...controlStatus, current: ref?.current.uuid });
   };
 
+  // console.log(scene);
+
   return (
     <>
       {ref.current && controlStatus.current === ref?.current.uuid && (
         <TransformControls object={ref.current} mode={controlStatus.mode} />
       )}
-      <mesh
+      <instancedMesh
         position={position}
         rotation={rotation}
         castShadow
@@ -37,7 +39,7 @@ const Model = (props) => {
             uuid={uuid}
           />
         )} */}
-      </mesh>
+      </instancedMesh>
     </>
   );
 };

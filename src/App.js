@@ -3,11 +3,20 @@ import { Canvas } from "@react-three/fiber";
 import { produce } from "immer";
 import { v4 as uuidv4 } from "uuid";
 import { Environment } from "@react-three/drei";
+import ReactLoading from "react-loading";
 import Toolbar from "./components/Toolbar";
 import Inspector from "./components/Inspector";
 import Controller from "./components/Controller";
 import Scene from "./Scene";
 import "./styles.css";
+
+const Loader = () => {
+  return (
+    <div className="loader">
+      <ReactLoading type="spokes" color="#0f0f0f" />
+    </div>
+  );
+};
 
 export default function App() {
   const [objects, setObjects] = useState([]);
@@ -19,7 +28,7 @@ export default function App() {
     name: "",
     position: { x: 0, y: 0, z: 0 },
     rotation: { x: 0, y: 0, z: 0 },
-    // color: "",
+    color: "",
     // emissive: "",
   });
 
@@ -48,8 +57,13 @@ export default function App() {
 
   return (
     <div className="wrapper">
-      <Suspense fallback={null}>
-        <Toolbar objects={objects} addShape={addShape} />
+      <Suspense fallback={<Loader />}>
+        <Toolbar
+          objects={objects}
+          addShape={addShape}
+          controlStatus={controlStatus}
+          setControlStatus={setControlStatus}
+        />
         <div className="main-window">
           <Canvas camera={{ fov: 75, position: [10, 10, 10] }}>
             <Environment

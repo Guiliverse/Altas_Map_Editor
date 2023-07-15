@@ -900,7 +900,7 @@ export const assets = [
   },
 ];
 const Toolbar = (props) => {
-  const { addShape } = props;
+  const { addShape, controlStatus, setControlStatus } = props;
 
   return (
     <div className="toolbar">
@@ -923,6 +923,10 @@ const Toolbar = (props) => {
                           className="toolbar-icon hover-effect"
                           onClick={() => {
                             addShape(item3.path);
+                            setControlStatus({
+                              ...controlStatus,
+                              current: null,
+                            });
                           }}
                         />
                       );
