@@ -6,6 +6,7 @@ const Inspector = (props) => {
     setControlStatus,
     inspectProperties,
     setInspectProperties,
+    setFlag,
   } = props;
 
   const { name, uuid, type, position, rotation, scale, color } =
@@ -16,6 +17,7 @@ const Inspector = (props) => {
   };
   const onColorChange = (color) => {
     setInspectProperties({ ...inspectProperties, color: color });
+    setFlag(true);
   };
   // const onEmissiveChange = (emissive) => {
   //   setInspectProperties({ ...inspectProperties, emissive: emissive });

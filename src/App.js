@@ -9,7 +9,6 @@ import Inspector from "./components/Inspector";
 import Controller from "./components/Controller";
 import Scene from "./Scene";
 import "./styles.css";
-
 const Loader = () => {
   return (
     <div className="loader">
@@ -24,11 +23,14 @@ export default function App() {
     current: null,
     mode: "translate",
   });
+  const [flag, setFlag] = useState(false);
   const [inspectProperties, setInspectProperties] = useState({
     name: "",
     position: { x: 0, y: 0, z: 0 },
     rotation: { x: 0, y: 0, z: 0 },
     color: "",
+    type: "",
+    uuid: "",
     // emissive: "",
   });
 
@@ -40,6 +42,7 @@ export default function App() {
           uuid: uuidv4(),
           rotation: [0, 0, 0],
           position: [0, 0, 0],
+          material: null,
         });
       })
     );
@@ -48,9 +51,7 @@ export default function App() {
   // useEffect(() => {
   //   console.log(objects);
   // }, [objects]);
-  // useEffect(() => {
-  //   console.log(controlStatus.current);
-  // }, [controlStatus]);
+
   // useEffect(() => {
   //   console.log(inspectProperties);
   // }, [inspectProperties]);
@@ -74,6 +75,8 @@ export default function App() {
             />
 
             <Scene
+              flag={flag}
+              setFlag={setFlag}
               objects={objects}
               controlStatus={controlStatus}
               setControlStatus={setControlStatus}
@@ -89,6 +92,7 @@ export default function App() {
       </Suspense>
 
       <Inspector
+        setFlag={setFlag}
         controlStatus={controlStatus}
         setControlStatus={setControlStatus}
         inspectProperties={inspectProperties}
