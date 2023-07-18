@@ -100,7 +100,7 @@ const Scene = ({
         const material = new THREE.MeshBasicMaterial({
           color: inspectProperties.color,
         });
-        currentObject.material = material;
+        currentObject.children[0].material = material;
       }
       // currentObject.children = [];
     }
@@ -143,6 +143,7 @@ const Scene = ({
           position={item.position}
           rotation={item.rotation}
           material={item.material}
+          // scale={item.scale}
           uuid={item.uuid}
           key={index}
           controlStatus={controlStatus}
