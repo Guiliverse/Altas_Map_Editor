@@ -12,20 +12,25 @@ const Model = (props) => {
     rotation,
     type,
     uuid,
-    // scale,
     material,
     controlStatus,
     setControlStatus,
     setFlag,
   } = props;
-  const ref = useRef();
-  const { scene } = useLoader(GLTFLoader, type, (loader) => {
-    const draco = new DRACOLoader();
-    draco.setDecoderPath("gltf/");
-    draco.setDecoderConfig({ type: "js" });
-    loader.setDRACOLoader(draco);
-  });
 
+  const [customPt, setCustomPt] = useState(position);
+
+  const ref = useRef();
+  const transformRef = useRef();
+  const { scene } = useLoader(GLTFLoader, type);
+  // const { scene } = useLoader(GLTFLoader, type, (loader) => {
+  //   const draco = new DRACOLoader();
+  //   draco.setDecoderPath("gltf/");
+  //   draco.setDecoderConfig({ type: "js" });
+  //   loader.setDRACOLoader(draco);
+  // });
+  // const { scene } = useGLTF(type);
+  // const copiedScene = useMemo(() => scene.clone(), [scene]);
   const [modelMaterial, setModelMaterial] = useState(material);
   // const temp = copiedScene;
   const onClickhandle = () => {
@@ -38,6 +43,21 @@ const Model = (props) => {
     if (material == null) setModelMaterial(scene.children[0].material);
   }, [material]);
 
+  useEffect(() => {
+    if (transformRef.current != null)
+      transformRef.current.addEventListener(
+        "dragging-changed",
+        function (event) {
+          const temp = ref.current.position;
+          setCustomPt([
+            Math.round(temp.x),
+            Math.round(temp.y),
+            Math.round(temp.z),
+          ]);
+        }
+      );
+  }, [transformRef.current]);
+
   // useEffect(() => {
   //   console.log(ref.current);
   //   const boundingBox = new THREE.Box3();
@@ -48,9 +68,13 @@ const Model = (props) => {
   return (
     <>
       {ref.current && controlStatus.current === ref?.current.uuid && (
-        <TransformControls object={ref.current} mode={controlStatus.mode} />
+        <TransformControls
+          object={ref.current}
+          mode={controlStatus.mode}
+          ref={transformRef}
+        />
       )}
-      <group position={position} rotation={rotation} ref={ref}>
+      <group position={customPt} rotation={rotation} ref={ref}>
         <mesh
           castShadow
           onClick={(e) => {
@@ -60,8 +84,6 @@ const Model = (props) => {
           name={type}
           geometry={scene.children[0].geometry}
           material={modelMaterial}
-          scale={[0.01, 0.01, 0.01]}
-          rotation={[Math.PI / 2, 0, 0]}
         />
         {/* <mesh position={[0, 1, 0]}>
           <sphereGeometry args={[0.05, 32, 16]} />

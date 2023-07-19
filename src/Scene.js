@@ -5,10 +5,12 @@ import {
   useHelper,
   GizmoHelper,
   GizmoViewcube,
+  Preload,
+  useGLTF,
 } from "@react-three/drei";
 import { BoxHelper, Color } from "three";
 import Model from "./components/Model";
-import { current } from "immer";
+// import { current } from "immer";
 import * as THREE from "three";
 // import { EffectComposer } from "@react-three/postprocessing";
 const Scene = ({
@@ -123,7 +125,11 @@ const Scene = ({
         <mesh
           position={[0, -0.251, 0]}
           receiveShadow
-          onClick={() => setControlStatus({ ...controlStatus, current: null })}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (controlStatus.current !== null)
+              setControlStatus({ ...controlStatus, current: null });
+          }}
         >
           <boxGeometry args={[20, 0.5, 20]} />
           <meshPhysicalMaterial
@@ -134,7 +140,7 @@ const Scene = ({
         </mesh>
       </group>
 
-      <gridHelper position={[0, 0, 0]} args={[5000, 5000]} />
+      <gridHelper position={[0, 0, 0]} args={[500, 500]} />
 
       {shapes.map((item, index) => (
         <Model
@@ -153,5 +159,6 @@ const Scene = ({
     </>
   );
 };
+useGLTF.preload();
 
 export default Scene;

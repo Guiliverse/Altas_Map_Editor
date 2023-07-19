@@ -28,6 +28,11 @@ export const radians_to_degrees = (radians) => {
   return radians * (180 / Math.PI);
 };
 
+// Funciton to convert degrees to radians
+export const degrees_to_radians = (degrees) => {
+  return degrees * (Math.PI / 180);
+};
+
 // Function to find the distance between 2 points in a 3D plane
 export const dist = (p1, p2) => {
   return Math.sqrt(

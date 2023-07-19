@@ -1,5 +1,5 @@
 import React, { useState, Suspense, useEffect, useCallback } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useLoader } from "@react-three/fiber";
 import { produce } from "immer";
 import { v4 as uuidv4 } from "uuid";
 import { Environment } from "@react-three/drei";
@@ -31,10 +31,10 @@ export default function App() {
     color: "",
     type: "",
     uuid: "",
-    // emissive: "",
   });
 
   const addShape = (type) => {
+    // useLoader.preload(GLTFLoader, type);
     setObjects(
       produce((draft) => {
         draft.push({

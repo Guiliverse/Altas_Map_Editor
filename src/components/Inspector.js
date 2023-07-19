@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { degrees_to_radians, radians_to_degrees } from "../utils";
 const Inspector = (props) => {
   const {
     controlStatus,
@@ -19,18 +19,13 @@ const Inspector = (props) => {
     setInspectProperties({ ...inspectProperties, color: color });
     setFlag(true);
   };
-  // const onEmissiveChange = (emissive) => {
-  //   setInspectProperties({ ...inspectProperties, emissive: emissive });
-  // };
+
   const onPositionChange = (position) => {
     setInspectProperties({ ...inspectProperties, position: position });
   };
   const onRotationChange = (rotation) => {
     setInspectProperties({ ...inspectProperties, rotation: rotation });
   };
-  // const onScaleChange = (scale) => {
-  //   setInspectProperties({ ...inspectProperties, scale: scale });
-  // };
 
   return (
     <div
@@ -101,59 +96,17 @@ const Inspector = (props) => {
               />
             </td>
           </tr>
-          {/* <tr className="inspector-element">
-              <td>
-                <p className="label">Scale</p>
-              </td>
-              <td className="flex-row">
-                <p className="content">X</p>
-                <input
-                  className="input-value"
-                  value={scale.x}
-                  onChange={(e) =>
-                    onScaleChange({
-                      x: +e.target.value,
-                      y: +scale.y,
-                      z: +scale.z,
-                    })
-                  }
-                />
-                <p className="content">Y</p>
-                <input
-                  className="input-value"
-                  value={scale.y}
-                  onChange={(e) =>
-                    onScaleChange({
-                      x: +scale.x,
-                      y: +e.target.value,
-                      z: +scale.z,
-                    })
-                  }
-                />
-                <p className="content">Z</p>
-                <input
-                  className="input-value"
-                  value={scale.z}
-                  onChange={(e) =>
-                    onScaleChange({
-                      x: +scale.x,
-                      y: +scale.y,
-                      z: +e.target.value,
-                    })
-                  }
-                />
-              </td>
-            </tr> */}
+
           <tr className="inspector-element">
             <td className="label">Rotation</td>
             <td className="flex-row">
               <p className="content">X</p>
               <input
                 className="input-value"
-                value={rotation.x}
+                value={radians_to_degrees(rotation.x)}
                 onChange={(e) =>
                   onRotationChange({
-                    x: +e.target.value,
+                    x: degrees_to_radians(+e.target.value),
                     y: +rotation.y,
                     z: +rotation.z,
                   })
@@ -162,11 +115,11 @@ const Inspector = (props) => {
               <p className="content">Y</p>
               <input
                 className="input-value"
-                value={rotation.y}
+                value={radians_to_degrees(rotation.y)}
                 onChange={(e) =>
                   onRotationChange({
                     x: +rotation.x,
-                    y: +e.target.value,
+                    y: degrees_to_radians(+e.target.value),
                     z: +rotation.z,
                   })
                 }
@@ -174,12 +127,12 @@ const Inspector = (props) => {
               <p className="content">Z</p>
               <input
                 className="input-value"
-                value={rotation.z}
+                value={radians_to_degrees(rotation.z)}
                 onChange={(e) =>
                   onRotationChange({
                     x: +rotation.x,
                     y: +rotation.y,
-                    z: +e.target.value,
+                    z: degrees_to_radians(+e.target.value),
                   })
                 }
               />

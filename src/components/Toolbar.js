@@ -1,12 +1,8 @@
 import React from "react";
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
-import DoorIcon from "../assets/toolbar-icon/door.png";
-import WindowIcon from "../assets/toolbar-icon/window.png";
 import WallIcon from "../assets/toolbar-icon/wall.png";
-import FurnitureIcon from "../assets/toolbar-icon/furniture.png";
 import RoofIcon from "../assets/toolbar-icon/roof.png";
 
 const Walls = [
@@ -154,13 +150,7 @@ const Toolbar = (props) => {
             <img src={item1.icon} className="toolbar-icon" />
             <div className="toolbar-submenu1 submenu-bg">
               {item1.children.map((item2, index2) => {
-                useLoader.preload(GLTFLoader, item2.path, (loader) => {
-                  const draco = new DRACOLoader();
-                  draco.setDecoderPath("gltf/");
-                  draco.setDecoderConfig({ type: "js" });
-                  loader.setDRACOLoader(draco);
-                });
-
+                useLoader.preload(GLTFLoader, item2.path);
                 return (
                   <div className="tooltip" key={index2}>
                     <img
@@ -174,7 +164,7 @@ const Toolbar = (props) => {
                         });
                       }}
                     />
-                    <span class="tooltiptext">{item2.category}</span>
+                    <span className="tooltiptext">{item2.category}</span>
                   </div>
                 );
               })}
